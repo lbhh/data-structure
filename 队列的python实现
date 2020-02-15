@@ -1,1 +1,24 @@
 
+from collections import deque
+
+dq = deque()
+
+dq.append(1)
+
+dq.append(2)
+
+print(dq)
+
+#输出deque([1, 2])
+
+dq.popleft()
+
+print(dq)
+
+#输出deque([2])
+
+dq.popleft()
+
+print(dq)
+
+#输出空列表
