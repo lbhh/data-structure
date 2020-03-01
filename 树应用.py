@@ -1,5 +1,20 @@
-def buildParseTree(fpexp):
-    fplist = fpexp.split()
+import operator
+
+from pythonds.basic.stack import Stack
+def evaluate(parseTree):
+    opers = {'+':operator.add,'-':operator.sub,'*':operator.mul,'/':operator.truediv}
+    leftC = parseTree.getLeftChild()
+    rightC = parseTree.getRightChild()
+
+    if leftC and rightC:
+        fn = opers[parseTree.getRootVal()]
+        return fn(evaluate(leftC),evaluate(rightC)) #递归调用
+    else:
+        return parseTree.getRootVal()
+
+
+def buildParseTree(fpliset):
+
     pStack = Stack()
     eTree = BinaryTree('')
     pStack.push(eTree)
